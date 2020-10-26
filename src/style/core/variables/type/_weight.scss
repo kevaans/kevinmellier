@@ -1,0 +1,37 @@
+/// Map of type variables
+/// @access private
+/// @group type
+
+// Create variables
+@function font-weight($name) {
+	@return map-get($fontWeight, $name);
+}
+
+// Create utilities
+@mixin createFontWeightUtilities($selector) {
+	@each $name, $variation in $fontWeight {
+		&--#{$name} {
+			#{$selector}: $variation !important;
+		}
+	}
+}
+
+//Export font-weight utilities
+@mixin font-weight {
+	.u-font-weight {
+		@include createFontWeightUtilities(font-weight);
+	}
+}
+
+//Set font-weight variables
+$fontWeight: (
+	regular:   300,
+	medium:    400,
+	semi-bold: 500,
+	bold:      600,
+) !default;
+
+$font-weight--regular:   font-weight(regular);
+$font-weight--medium:    font-weight(medium);
+$font-weight--semi-bold: font-weight(semi-bold);
+$font-weight--bold:      font-weight(bold);

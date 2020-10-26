@@ -1,0 +1,48 @@
+/// Map reponsive variables
+/// @access private
+/// @group responsive
+
+$responsive--phone:   576;
+$responsive--tablet:  768;
+$responsive--laptop:  992;
+$responsive--desktop: 1200;
+
+$gridCols:   12;
+
+$mapGridProps: (
+	'':     0,
+	'--s':  $responsive--phone,
+	'--m':  $responsive--tablet,
+	'--l':  $responsive--laptop,
+	'--xl': $responsive--desktop
+);
+
+@mixin createBreakpoints($breakpoint, $min-or-max) {
+	@if ($breakpoint == 0) {
+		@content;
+	}
+
+	@else {
+		@media screen and (#{$min-or-max}-width: $breakpoint *1px) {
+			@content;
+		}
+	}
+}
+
+@mixin breakpoint($point) {
+	@if $point 			== desktop {
+		@media (max-width: $responsive--desktop *1px) { @content ; }
+	}
+
+	@else if $point 	== laptop {
+		@media (max-width: $responsive--laptop *1px) { @content ; }
+	}
+
+	@else if $point 	== tablet {
+		@media (max-width: $responsive--tablet *1px) { @content ; }
+	}
+
+	@else if $point 	== phone {
+		@media (max-width: $responsive--phone *1px) { @content ; }
+	}
+}
