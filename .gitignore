@@ -62,7 +62,3 @@ typings/
 
 .sass-cache/
 *.css.map
-
-#Custom yurplan
-
-public/
