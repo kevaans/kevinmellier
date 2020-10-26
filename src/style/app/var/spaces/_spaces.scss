@@ -1,0 +1,60 @@
+/// Map spaces variables
+/// @access private
+/// @group spaces
+
+//Set spaces variables
+$spaces: (
+
+   0: 0px,
+   1: 4px,
+   2: 8px,
+   3: 16px,
+   4: 24px,
+   5: 32px,
+   6: 64px,
+   7: 96px,
+   8: 128px,
+
+);
+
+$spaces--1: spaces(1);
+$spaces--2: spaces(2);
+$spaces--3: spaces(3);
+$spaces--4: spaces(4);
+$spaces--5: spaces(5);
+$spaces--6: spaces(6);
+$spaces--7: spaces(7);
+$spaces--8: spaces(8);
+
+//Import margin utilities
+@include margin;
+
+//Import padding utilities
+@include padding;
+
+$containerSize: (
+    'xs': 400px,
+    's':  900px,
+    'm':  1260px,
+    'l':  1400px,
+    'xl': 1800px
+);
+
+$container--xs: 400px;
+$container--s:  900px;
+$container--m:  1400px;
+$container--l:  1400px;
+$container--xl: 1800px;
+
+@mixin createContainerSizes($containerVarSize: 'normal') {
+    @each $containerSizeLabel, $containerSizeValue in $containerSize {
+    &--#{$containerSizeLabel} {
+      @if $containerVarSize == '/2' {
+        max-width: $containerSizeValue / 2;
+      }
+      @else {
+        max-width: $containerSizeValue;
+      }
+    }
+  }
+}

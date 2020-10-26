@@ -1,0 +1,129 @@
+@import '../core/core';
+@import 'var/var';
+@import 'component/component';
+@import 'utilities/utilities';
+
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,San Francisco,Helvetica Neue,Helvetica,Ubuntu,Roboto,Noto,Segoe UI,Arial,sans-serif;
+  color: $color__black;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+
+  img {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.description {
+    display:none;
+    position:absolute;
+    top: 0px;
+    border:1px solid $color__black;
+    width:375px;
+    height:812px;
+}
+
+$barMenuHeight: 2px;
+$barMenuMargin: 4px;
+
+.s-menu {
+    cursor: pointer;
+    position: relative;
+    // padding-top: calc( #{$spaces--4} - ((#{$barMenuHeight * 3} + #{$barMenuMargin * 2}) / 2)) ;
+    &__bar {
+        position: relative;
+        
+        background: $color__black;
+        width: 20px;
+        height: $barMenuHeight;
+        margin-bottom: $barMenuMargin;
+        
+    }
+    &.is-active {
+        padding-top: calc( #{$spaces--4} - ((#{$barMenuHeight * 3} + #{$barMenuMargin * 2}) / 2) + #{$barMenuHeight}) ;
+        .s-menu__bar {
+            
+            &:first-child {
+                top: 3px;
+                transform: rotate(45deg);
+            }
+            &:last-child {
+                bottom: 3px;
+                transform: rotate(-45deg);
+            }
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+    }
+}
+
+.mini-preview-wrapper {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0;
+  margin-top: -4px;
+  border: solid 1px #000;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, .3);
+  transition: z-index steps(1) .3s, opacity .3s, margin-top .3s;
+}
+
+a:hover .mini-preview-wrapper {
+  z-index: 2;
+  opacity: 1;
+  margin-top: 6px;
+  transition: opacity .3s, margin-top .3s;
+}
+
+.mini-preview-loading, .mini-preview-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;  
+}
+
+.mini-preview-loading {
+  display: table;
+  height: 100%;
+  width: 100%;
+  font-size: 1.25rem;
+  text-align: center;
+  color: #f5ead4;
+  background-color: #59513f;
+}
+
+.mini-preview-loading::before {
+  content: 'Loading...';
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.mini-preview-cover {
+  background-color: rgba(0, 0, 0, 0); /* IE fix */
+}
+
+.mini-preview-frame {
+  border: none;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}

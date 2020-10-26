@@ -1,0 +1,9 @@
+/// @access private
+/// @group button
+
+@mixin button--skeleton {
+	.c-btn--skeleton {
+		height: 42px;
+		border-radius: 4px;
+	}
+}

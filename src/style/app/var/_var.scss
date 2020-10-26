@@ -1,0 +1,24 @@
+
+
+$imageSize: (
+    'xxs':  40px,
+    'xs':  60px,
+    's':  100px,
+    'm':  200px,
+    'l':  300px,
+    'xl': 400px,
+    'full': 100%
+);
+
+$container--xs: 400px;
+$container--s:  900px;
+$container--m:  1400px;
+$container--l:  1600px;
+$container--xl: 1800px;
+
+
+@import 'color/color';
+@import 'spaces/spaces';
+@import 'type/size';
+@import 'type/weight';
+@import 'responsive/responsive';

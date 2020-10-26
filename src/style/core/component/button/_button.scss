@@ -1,0 +1,43 @@
+/// @access private
+/// @group button
+
+@import 'mixin';
+@import 'skeleton';
+
+// Component style
+@mixin button {
+	.c-btn {
+		// Btn presets
+		border-radius: 100px;
+		cursor: pointer;
+		padding: 12px 20px;
+		width: auto;
+		text-align: center;
+		text-decoration: none;
+
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+			text-decoration: none;
+		}
+		// Btn full width
+		&--fluid {
+			flex: 1;
+			width: 100%;
+
+			&--s {
+				@include breakpoint(phone) {
+					flex: 1 !important;
+					width: 100% !important;
+				}
+			}
+		}
+		// Btn square
+		&--square {
+			padding: 0;
+			max-width: 42px;
+			width: 100%;
+		}
+	}
+}

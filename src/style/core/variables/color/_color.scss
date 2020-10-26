@@ -1,0 +1,41 @@
+/// Map of color variables
+/// @access private
+/// @group color
+
+// Create variables ( ex: background: color(primary, darker) )
+@function color($name, $variation: "") {
+	@return map-get(map-get($colors, $name), unquote($variation));
+}
+
+// Create utilities ( ex: background: color(primary, darker) )
+@mixin createColorsUtilities($selector) {
+	@each $name, $variation in $colors {
+		&__#{$name} {
+			@each $variation, $value in $variation {
+				@if $variation == "" {
+					#{$selector}: $value;
+				}
+
+				@else {
+					&--#{$variation} {
+						#{$selector}: $value;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Export color utilities
+@mixin color {
+	.u-color {
+		@include createColorsUtilities(color);
+	}
+}
+
+// Export background-color utilities
+@mixin background {
+	.u-bg {
+		@include createColorsUtilities(background-color);
+	}
+}

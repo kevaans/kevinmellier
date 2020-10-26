@@ -1,0 +1,97 @@
+/// Map of spaces variables
+/// @access private
+/// @group spaces
+
+// Create variables
+@function spaces($name) {
+	@return pxtorem(map-get($spaces, $name));
+}
+
+// Create utilities
+@mixin createSpacesUtilities($selector, $orientation: "", $modifier: "", $breakpoint: "") {
+	@include createBreakpoints($breakpoint, 'max') {
+		@each $name, $variation in $spaces {
+			@if $orientation == "" {
+				&#{$modifier}-#{$name} {
+					#{$selector}: pxtorem($variation) !important;
+				}
+			}
+
+			@else if $orientation == "x" {
+				&#{$orientation}#{$modifier}-#{$name} {
+					#{$selector}-left: pxtorem($variation) !important;
+					#{$selector}-right: pxtorem($variation) !important;
+				}
+			}
+
+			@else if $orientation == "y" {
+				&#{$orientation}#{$modifier}-#{$name} {
+					#{$selector}-top: pxtorem($variation) !important;
+					#{$selector}-bottom: pxtorem($variation) !important;
+				}
+			}
+
+			@else {
+				&#{str-slice($orientation, 1, 1)}#{$modifier}-#{$name} {
+					#{$selector}-#{$orientation}: pxtorem($variation) !important;
+				}
+			}
+		}
+	}
+}
+// Create utilities for auto x margin
+@mixin createSpacesAutoUtilities($selector, $orientation: "", $modifier: "", $breakpoint: "") {
+	@include createBreakpoints($breakpoint, 'max') {
+		@if $orientation == "a" {
+			&x#{$modifier}-#{$orientation} {
+				#{$selector}-right: auto !important;
+				#{$selector}-left: auto !important;
+			}
+		}
+
+		@else if $orientation == "l" {
+			&#{$orientation}#{$modifier}-a {
+				#{$selector}-left: auto !important;
+			}
+		}
+
+		@else if $orientation == "r" {
+			&#{$orientation}#{$modifier}-a {
+				#{$selector}-right: auto !important;
+			}
+		}
+	}
+}
+
+//Export margin utilities
+@mixin margin {
+	.m {
+		@each $modifier , $breakpoint in $mapGridProps {
+			@include createSpacesUtilities(margin, "", $modifier, $breakpoint);
+			@include createSpacesUtilities(margin, x, $modifier, $breakpoint);
+			@include createSpacesUtilities(margin, y, $modifier, $breakpoint);
+			@include createSpacesUtilities(margin, top, $modifier, $breakpoint);
+			@include createSpacesUtilities(margin, right, $modifier, $breakpoint);
+			@include createSpacesUtilities(margin, bottom, $modifier, $breakpoint);
+			@include createSpacesUtilities(margin, left, $modifier, $breakpoint);
+			@include createSpacesAutoUtilities(margin, a, $modifier, $breakpoint);
+			@include createSpacesAutoUtilities(margin, l, $modifier, $breakpoint);
+			@include createSpacesAutoUtilities(margin, r, $modifier, $breakpoint);
+		}
+	}
+}
+
+//Export padding utilities
+@mixin padding {
+	.p {
+		@each $modifier , $breakpoint in $mapGridProps {
+			@include createSpacesUtilities(padding, "", $modifier, $breakpoint);
+			@include createSpacesUtilities(padding, x, $modifier, $breakpoint);
+			@include createSpacesUtilities(padding, y, $modifier, $breakpoint);
+			@include createSpacesUtilities(padding, top, $modifier, $breakpoint);
+			@include createSpacesUtilities(padding, right, $modifier, $breakpoint);
+			@include createSpacesUtilities(padding, bottom, $modifier, $breakpoint);
+			@include createSpacesUtilities(padding, left, $modifier, $breakpoint);
+		}
+	}
+}

@@ -1,0 +1,38 @@
+/// Map of type variables
+/// @access private
+/// @group type
+
+$coeffpxtorem: 16;
+
+$letterSpacingTitle: (-1 / $coeffpxtorem + rem);
+
+// Magic trick to strip unit in SASS
+@function stripUnit ($sizeValue) {
+	@return $sizeValue * 0 + 1;
+}
+
+// Function to convert PX to REM
+@function pxtorem ($sizeValue) {
+	@return (($sizeValue / stripUnit($sizeValue)) / $coeffpxtorem) + rem;
+}
+
+// Create variables
+@function font-size($name) {
+	@return pxtorem(map-get($fontSize, $name));
+}
+
+// Create utilities
+@mixin createFontSizeUtilities($selector) {
+	@each $name, $variation in $fontSize {
+		&--#{$name} {
+			#{$selector}: pxtorem($variation) !important;
+		}
+	}
+}
+
+//Export font-size utilities
+@mixin font-size {
+	.u-font-size {
+		@include createFontSizeUtilities(font-size);
+	}
+}

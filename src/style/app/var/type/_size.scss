@@ -1,0 +1,29 @@
+/// Map of type sizes variables
+/// @access private
+/// @group type
+
+//Set font-size variables
+$fontSize: (
+
+   1: 12px,
+   2: 14px,
+   3: 16px,
+   4: 18px,
+   5: 24px,
+   6: 32px,
+   7: 46px,
+   8: 70px,
+
+) !default;
+
+$font-size--1: font-size(1);
+$font-size--2: font-size(2);
+$font-size--3: font-size(3);
+$font-size--4: font-size(4);
+$font-size--5: font-size(5);
+$font-size--6: font-size(6);
+$font-size--7: font-size(7);
+$font-size--8: font-size(8);
+
+//Import font-size utilities
+@include font-size;

@@ -1,0 +1,28 @@
+/// @access private
+/// @group button
+
+// Import CORE button component
+@include button;
+
+// Override CORE button component
+.c-btn {
+
+    &--primary {
+        @include buttonColor(
+            $color__primary,
+            $color__white,
+            $color__primary--darker,
+            rgba($color__primary, 0.2),
+        )
+    }
+    
+    &--secondary {
+        @include buttonColor(
+            $color__secondary,
+            $color__black,
+            $color__secondary--darker,
+            rgba($color__secondary--darker, 0.4),
+        )
+    }
+
+}

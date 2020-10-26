@@ -1,0 +1,79 @@
+/*--------------------
+GRID
+--------------------*/
+
+.c-grid {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 $spaces--4;
+  // Max width for grid web/styles/yurstrap/app/styles/var/size/_space.scss
+  @include createContainerSizes;
+  // Fix to clear float elements
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  // Max width 100%
+  &--fluid {
+    margin: 0;
+    max-width: 100%;
+  }
+}
+
+/*--------------------
+GRID ROW AND COLUMN
+--------------------*/
+
+.c-grid {
+  &__row {
+    &--column {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      height: 100%;
+    }
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    margin-left: - $gridGutter;
+    margin-right: - $gridGutter;
+    // No wrap for constrain Row inline
+    &--no-wrap {
+      flex-wrap: nowrap;
+    }
+    // No Column for remove negative margin
+    &--no-col {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    // Modifier for children prositions in a Row
+    &--align-hcenter {
+      justify-content: center;
+    }
+    &--align-vcenter {
+      align-items: center;
+    }
+    &--align-vright {
+      align-items: flex-end;
+    }
+    &--align-right {
+      justify-content: flex-end;
+    }
+    &--space-between {
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: $responsive--tablet *1px) {
+  .c-grid {
+    padding: 0 $spaces--3; 
+  }
+}
+
+
+.c-grid__row--revert:nth-child(2n) { 
+    flex-direction: row-reverse; 
+}

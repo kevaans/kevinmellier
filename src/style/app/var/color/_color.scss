@@ -1,0 +1,40 @@
+/// Map of color variables
+/// @access private
+/// @group color
+
+$colors: (
+
+    white: (
+        "":      #FFFFFF,
+    ),
+
+    black: (
+        "":      #1b1b1b,
+    ),
+
+    primary: (
+        "":      #1E27F0,
+        "darker":#1119DD,
+    ),
+
+    secondary: (
+        "":      #F0F2F6,
+        "darker":#E5E8F1,
+        
+    ),
+
+) !default;
+
+
+//Set color variables
+
+$color__white:               color(white);
+$color__black:               color(black);
+
+
+$color__primary:             color(primary);
+$color__primary--darker:     color(primary, darker);
+
+$color__secondary:           color(secondary);
+$color__secondary--darker:   color(secondary, darker);
+

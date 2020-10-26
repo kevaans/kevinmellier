@@ -1,0 +1,60 @@
+/// @access private
+/// @group type
+
+@import 'mixin';
+
+// Component style
+@mixin type {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 0;
+	}
+
+	.c-type {
+		&-title {
+			&--1 {
+				@include typeStyle('title--1');
+			}
+
+			&--2 {
+				@include typeStyle('title--2');
+			}
+
+			&--3 {
+				@include typeStyle('title--3');
+			}
+
+			&--4 {
+				@include typeStyle('title--4');
+			}
+
+			&--5 {
+				@include typeStyle('title--5');
+			}
+		}
+
+		&-body {
+			&--1 {
+				@include typeStyle('body--1');
+			}
+
+			&--2 {
+				@include typeStyle('body--2');
+			}
+
+			&--3 {
+				@include typeStyle('body--3');
+			}
+		}
+
+		&-helper {
+			&--1 {
+				@include typeStyle('helper--1');
+			}
+		}
+	}
+}

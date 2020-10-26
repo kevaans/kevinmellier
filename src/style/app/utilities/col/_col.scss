@@ -1,0 +1,70 @@
+%styleColPresets {
+  width: 100%;
+  min-height: 1px;
+  position: relative;
+  float: left;
+  padding-right: $gridGutter;
+  padding-left: $gridGutter;
+  box-sizing: border-box;
+}
+
+$mapGridProps: (
+  '':     0,
+  '--s':  $responsive--phone,
+  '--m':  $responsive--tablet,
+  '--l':  $responsive--laptop,
+  '--xl': $responsive--desktop
+);
+
+@mixin createBreakpoints($breakpoint, $min-or-max) {
+  @if($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (#{$min-or-max}-width: $breakpoint *1px) {
+      @content;
+    }
+  }
+}
+
+@mixin createColPresets($modifier, $gridCols, $breakpoint) {
+  @for $i from 1 through $gridCols {
+    &#{$modifier}-#{$i} {
+      @extend %styleColPresets;
+    }
+  }
+}
+
+@mixin createColBreakpoints($modifier, $gridCols, $breakpoint) {
+  @include createBreakpoints($breakpoint, 'min') {
+    &#{$modifier} {
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+    }
+    &#{$modifier}-auto {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+    }
+    &#{$modifier}-push-0 {
+      margin-left: 0;
+    }
+    @for $i from 1 through $gridCols {
+      &#{$modifier}-#{$i} {
+        flex: 0 0 (100 / ($gridCols / $i) ) * 1%;
+        max-width: (100 / ($gridCols / $i) ) * 1%; //Fix IE width
+      }
+      &#{$modifier}-push-#{$i} {
+        margin-left: (100 / ($gridCols / $i) ) * 1%;
+      }
+    }
+  }
+}
+
+.u-col {
+  @extend %styleColPresets;
+  @each $modifier , $breakpoint in $mapGridProps {
+    @include createColPresets($modifier, $gridCols, $breakpoint);
+    @include createColBreakpoints($modifier, $gridCols, $breakpoint);
+  }
+}

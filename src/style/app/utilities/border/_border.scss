@@ -1,0 +1,9 @@
+.border {
+    border: 1px solid $color__black;
+    &--left {
+        border-left: 1px solid $color__black;
+    }
+    &--right {
+       border-right: 1px solid $color__secondary;
+    }
+}
