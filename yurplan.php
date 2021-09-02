@@ -8,9 +8,12 @@
     include 'web/header.php';
   ?>
     <div class="c-grid c-grid--l mt-5 mt--s-4">
-        <div class="c-grid__row c-grid__row--no-col">
+        <!-- <div class="c-grid__row c-grid__row--no-col">
             <img class="" src="web/img/yurplan_6.jpg" style="width: 100%; height: 100%;"/>
-        </div>
+        </div> -->
+        <video style="width: 100%;" poster="https://assets.yurplan.com/yurplan-v1/img/r_video_home_booking.svg" playsinline="" autoplay="" loop="" muted="" src="https://assets.yurplan.com/manual/r_video_home_booking.mp4">
+            <source src="https://assets.yurplan.com/manual/r_video_home_booking.mp4" type="video/mp4">
+        </video>
     </div>
     <div class="c-grid c-grid--l my-4">
         <div class="c-grid__row my-6">
@@ -58,6 +61,11 @@
             </div>
             <div class="u-col--m-6 mt-5">
                 <img class="" src="web/img/yurplan_8.jpg"/>
+            </div>
+            <div class="u-col--m-6 mt-5">
+                <video style="width: 100%;" poster="https://assets.yurplan.com/yurplan-v1/img/r_video_home_booking.svg" playsinline="" autoplay="" loop="" muted="" src="https://assets.yurplan.com/manual/r_video_home_booking.mp4">
+                        <source src="https://assets.yurplan.com/manual/r_video_home_booking.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@
   ?>
     <div class="c-grid c-grid--l my-4">
         <div class="c-grid__row c-grid__row--align-vcenter my-6">
-            <div class="u-col--m-4 u-bg__white border--right" style="position: fixed; min-height: 100vh; z-index: 1000;">
+            <div class="u-col--m-4 u-bg__white border--right" style="position: fixed; min-height: 100vh; z-index: 1000; top:120px;">
                 <div class="c-grid__row c-grid__row--align-vcenter c-grid__row--no-col">
                     <a class="c-btn c-btn--primary" href="">← Work</a> 
                     <img class="mx-2" src="web/img/arrow.svg" style="height: 20px; width: auto;"/> 
