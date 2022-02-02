@@ -12,14 +12,14 @@
 
 	@else if $name == 'title--2' {
 		font-size: $font-size--5;
-		font-weight: $font-weight--bold;
+		font-weight: $font-weight--semi-bold;
 		line-height: 1.4;
 		color: $color__black;
 	}
 
 	@else if $name == 'title--3' {
 		font-size: $font-size--6;
-		font-weight: $font-weight--bold;
+		font-weight: $font-weight--semi-bold;
 		line-height: 1.4;
 		letter-spacing: $letterSpacingTitle;
 		margin-bottom: $spaces--2;
@@ -28,7 +28,7 @@
 
 	@else if $name == 'title--4' {
 		font-size: $font-size--7;
-		font-weight: $font-weight--bold;
+		font-weight: $font-weight--semi-bold;
 		line-height: 1.4;
 		letter-spacing: $letterSpacingTitle;
 		margin-bottom: $spaces--3;
@@ -37,7 +37,7 @@
 
 	@else if $name == 'title--5' {
 		font-size: $font-size--8;
-		font-weight: $font-weight--bold;
+		font-weight: $font-weight--semi-bold;
 		line-height: 1.2;
 		margin-bottom: $spaces--3;
 		color: $color__black;

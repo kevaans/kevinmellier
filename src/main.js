@@ -17,4 +17,3 @@ $(".tiptext")
       .children(".description")
       .hide();
   });
-
